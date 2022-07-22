@@ -1,0 +1,36 @@
+{
+    "name": {
+        "fontName": "PALSCRI.TTF",
+        "fontSize": 45,
+        "fontColor": {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "x": 430,
+        "y": 300
+      },
+      "paragraph": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 10,
+        "fontColor": {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      },
+    "organisation": {
+      "x": 265,
+      "y": 240
+    },
+    "event": {
+      "x": 370,
+      "y": 227
+    },
+    "qrCode": {
+      "x": 680,
+      "y": 400,
+      "foreground": "#ffffff",
+      "background": "#1a2a3e"
+    }
+  }
