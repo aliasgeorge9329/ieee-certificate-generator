@@ -544,6 +544,145 @@ const generateFlutterAndDart22PDF = async (
   }
 };
 
+const generateieeeExecom2022 = async (name, certificate, post,no) => {
+  let main = document.querySelector(".main");
+  const { PDFDocument, rgb } = PDFLib;
+
+  certificate1 = "";
+  exBytes1 = "";
+  exFont1 = "";
+  exFontSub1 = "";
+
+  if (certificate === "IEEE EXECOM 2022") {
+    certificate1 = await fetch(
+      "./certificates/cert-data/ieeeexecom2022/data.json"
+    ).then((res) => {
+      return res.json();
+    });
+
+    exFont1 = await fetch("./fonts/" + certificate1.name.fontName).then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    exFontSub1 = await fetch("./fonts/" + certificate1.post.fontName).then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    exBytes1 = await fetch("./certificates/cert-pdf/ieeeexecom2022/a.pdf").then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    const pdfDoc1 = await PDFDocument.load(exBytes1);
+
+    pdfDoc1.registerFontkit(fontkit);
+    const myFont1 = await pdfDoc1.embedFont(exFont1);
+    const myFontSub1 = await pdfDoc1.embedFont(exFontSub1);
+    const pages1 = pdfDoc1.getPages();
+    const firstPg1 = pages1[0];
+
+    if (name != null) {
+      name = name.trim();
+      name = titleCase(name);
+      firstPg1.drawText(name, {
+        size: certificate1.name.fontSize,
+        x: certificate1.name.x - (name.length > 10 ? name.length * 3 : 0),
+        y: certificate1.name.y,
+        color: rgb(
+          certificate1.name.fontColor.r,
+          certificate1.name.fontColor.g,
+          certificate1.name.fontColor.b
+        ),
+        font: myFont1,
+      });
+    }
+
+    if (post != null) {
+      post = post.trim();
+      post = titleCase(post);
+      firstPg1.drawText(post, {
+        size: certificate1.post.fontSize,
+        x: certificate1.post.x - (post.length > 10 ? post.length * 3 : 0),
+        y: certificate1.post.y,
+        color: rgb(
+          certificate1.post.fontColor.r,
+          certificate1.post.fontColor.g,
+          certificate1.post.fontColor.b
+        ),
+        font: myFontSub1,
+      });
+    }
+
+    if (no != null) {
+      no = no.trim();
+      no = titleCase(no);
+      firstPg1.drawText(no, {
+        size: certificate1.no.fontSize,
+        x: certificate1.no.x,
+        y: certificate1.no.y,
+        color: rgb(
+          certificate1.no.fontColor.r,
+          certificate1.no.fontColor.g,
+          certificate1.no.fontColor.b
+        ),
+        font: myFontSub1,
+      });
+    }
+
+    var qr = new QRious({
+      value: window.location.href,
+      foreground: certificate1.qrCode.foreground,
+      background: certificate1.qrCode.background,
+    });
+
+    qr = qr.toDataURL();
+    const qrImage = await pdfDoc1.embedPng(qr);
+
+    firstPg1.drawImage(qrImage, {
+      x: certificate1.qrCode.x,
+      y: certificate1.qrCode.y,
+      width: 100,
+      height: 100,
+    });
+
+    const uri = await pdfDoc1.saveAsBase64({ dataUri: true });
+    var h2 = document.createElement("H3");
+    var t2 = document.createTextNode(
+      "This certificate is presented to " +
+        name +
+        " in recognition for their contribution as " +
+        post +
+        " at the IEEE Student Branch NITC(IEEE SB NITC), NIT Calicut."
+    );
+
+    h2.appendChild(t2);
+    main.removeChild(main.lastElementChild);
+    main.appendChild(h2);
+
+    var elem = document.createElement("img");
+    elem.setAttribute("src", "./static/img/download-icon.png");
+    elem.setAttribute("id", "download-button");
+    elem.setAttribute("height", "30");
+    elem.setAttribute("width", "30");
+
+    var anchor = document.createElement("a");
+    anchor.href = uri;
+
+    anchor.download = "ieee_excom_2022_certificate.pdf";
+    anchor.appendChild(elem);
+    main.appendChild(anchor);
+
+    var enter = document.createElement("br");
+    main.appendChild(enter);
+    main.appendChild(enter);
+  }
+};
+
 const checkUser = async (ID) => {
   let main = document.querySelector(".main");
   main.innerHTML = "";
@@ -585,6 +724,42 @@ window.onload = (e) => {
                   user[i].college,
                   user[i].certificates[j].name,
                   user[i].certificates[j].category
+                );
+              } else {
+                main.removeChild(main.lastElementChild);
+                addText("No Certificate for " + user[i].certificates[j].name);
+              }
+            }
+          }
+          if (j === 0) {
+            main.removeChild(main.lastElementChild);
+            addText("No Certificates Available");
+          }
+        }
+      }
+    });
+  }
+  if (name === "ieeeexecom2022") {
+    const user = checkUser(id).then((user) => {
+      if (user) {
+        let main = document.querySelector(".main");
+        var h1 = document.createElement("H2");
+        var t1 = document.createTextNode("Loading your Certificate");
+        h1.appendChild(t1);
+        main.appendChild(h1);
+
+        for (i = 0; i < user.length; i++) {
+          for (j = 0; j < user[i].certificates.length; j++) {
+            if (
+              user[i].certificates[j].name.replace(/ /g, "").toLowerCase() ===
+              name
+            ) {
+              if (user[i].certificates[j].hasCertificate) {
+                generateieeeExecom2022(
+                  user[i].name,
+                  user[i].certificates[j].name,
+                  user[i].certificates[j].post,
+                  user[i].certificates[j].no,
                 );
               } else {
                 main.removeChild(main.lastElementChild);

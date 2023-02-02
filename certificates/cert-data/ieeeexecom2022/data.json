@@ -1,0 +1,41 @@
+{
+    "name": {
+        "fontName": "PALSCRI.TTF",
+        "fontSize": 65,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 370,
+        "y": 295
+      },
+    "post": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 20,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 380,
+        "y": 205
+      },
+    "no": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 15,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 490,
+        "y": 262
+      }, 
+    "qrCode": {
+      "x": 380,
+      "y": 50,
+      "foreground": "#000000",
+      "background": "#f7f8f8"
+    }
+  }
