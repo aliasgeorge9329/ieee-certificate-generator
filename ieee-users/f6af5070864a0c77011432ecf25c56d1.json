@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"name": "Antony Joy", "email": "antony_b200912ec@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}]}]
+=======
+[{"name": "Antony Joy", "email": "antony_b200912ec@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}, {"name": "IEEE EXECOM 2022", "post": "Technical Coordinator EDS", "no": 98272923, "hasCertificate": "true"}]}]
+>>>>>>> parent of 544c345 (first commit)

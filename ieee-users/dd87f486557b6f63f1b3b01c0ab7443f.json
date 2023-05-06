@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"name": "MITRA PRASANNAN", "email": "mitra_b200232ee@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}]}]
+=======
+[{"name": "MITRA PRASANNAN", "email": "mitra_b200232ee@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}, {"name": "IEEE EXECOM 2022", "post": "SB Vice Chair", "no": 98099856, "hasCertificate": "true"}]}]
+>>>>>>> parent of 544c345 (first commit)
