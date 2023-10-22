@@ -544,8 +544,8 @@ const generateFlutterAndDart22PDF = async (
   }
 };
 
-<<<<<<< HEAD
-=======
+
+
 const generateieeeExecom2022 = async (name, certificate, post,no) => {
   let main = document.querySelector(".main");
   const { PDFDocument, rgb } = PDFLib;
@@ -685,7 +685,7 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
   }
 };
 
->>>>>>> parent of 544c345 (first commit)
+
 const checkUser = async (ID) => {
   let main = document.querySelector(".main");
   main.innerHTML = "";
@@ -742,8 +742,8 @@ window.onload = (e) => {
       }
     });
   }
-<<<<<<< HEAD
-=======
+
+  
   if (name === "ieeeexecom2022") {
     const user = checkUser(id).then((user) => {
       if (user) {
@@ -780,5 +780,4 @@ window.onload = (e) => {
       }
     });
   }
->>>>>>> parent of 544c345 (first commit)
 };
