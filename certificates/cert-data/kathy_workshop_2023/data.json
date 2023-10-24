@@ -1,0 +1,30 @@
+{
+    "name": {
+        "fontName": "PALSCRI.TTF",
+        "fontSize": 45,
+        "fontColor": {
+          "r": 255,
+          "g":255,
+          "b": 255
+        },
+        "x": 90,
+        "y": 424
+      },
+
+      "paragraph": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 10,
+        "fontColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        }
+      },
+    
+    "qrCode": {
+      "x": 744,
+      "y": 400,
+      "foreground": "#ffffff",
+      "background": "#1a2a3e"
+    }
+  }
