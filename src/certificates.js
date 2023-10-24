@@ -686,6 +686,124 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
 };
 
 
+const generatekathy2023 = async (name, certificate, college) => {
+  let main = document.querySelector(".main");
+  const { PDFDocument, rgb } = PDFLib;
+
+  certificate1 = "";
+  exBytes1 = "";
+  exFont1 = "";
+  exFontSub1 = "";
+
+  if (certificate === "KATHY GIORI WORKSHOP 2023") {
+    certificate1 = await fetch(
+      "./certificates/cert-data/ieeeexecom2022/data.json"
+    ).then((res) => {
+      return res.json();
+    });
+
+    exFont1 = await fetch("./fonts/" + certificate1.name.fontName).then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    exFontSub1 = await fetch("./fonts/" + certificate1.post.fontName).then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    exBytes1 = await fetch("./certificates/cert-pdf/kathy_workshop_2023/kathy.pdf").then(
+      (res) => {
+        return res.arrayBuffer();
+      }
+    );
+
+    const pdfDoc1 = await PDFDocument.load(exBytes1);
+
+    pdfDoc1.registerFontkit(fontkit);
+    const myFont1 = await pdfDoc1.embedFont(exFont1);
+    const myFontSub1 = await pdfDoc1.embedFont(exFontSub1);
+    const pages1 = pdfDoc1.getPages();
+    const firstPg1 = pages1[0];
+
+    if (name != null) {
+      name = name.trim();
+      name = titleCase(name);
+      firstPg1.drawText(name, {
+        size: certificate1.name.fontSize,
+        x: 90 ,//- (name.length > 10 ? name.length * 3 : 0),
+        y: 315,
+        color: rgb(1,1,1),
+        font: myFont1,
+      });
+    }
+
+    if (college != null) {
+      college = college.trim();
+      college = titleCase(college);
+      firstPg1.drawText(college, {
+        size: certificate1.post.fontSize,
+        x: 120 ,//- (college.length > 10 ? college.length * 3 : 0),
+        y: 293,
+        color: rgb(1,1,1),
+        font: myFontSub1,
+      });
+    }
+
+
+
+    var qr = new QRious({
+      value: window.location.href,
+      foreground: certificate1.qrCode.foreground,
+      background: certificate1.qrCode.background,
+    });
+
+    qr = qr.toDataURL();
+    const qrImage = await pdfDoc1.embedPng(qr);
+
+    firstPg1.drawImage(qrImage, {
+      x: 536,
+      y: 85,
+      width: 100,
+      height: 100,
+    });
+
+    const uri = await pdfDoc1.saveAsBase64({ dataUri: true });
+    var h2 = document.createElement("H3");
+    var t2 = document.createTextNode(
+      "This is to certify that " +
+      name +
+      " from " +
+      college +
+      " has attended a workshop on DIY Smart Home Demonstration and How to create your own Web Things with distinguished international speaker Kathy Giori conducted jointly by IEEE EDS SBC NIT Calicut and IEEE CSS SBC Sahrdaya in association with Tathva NIT Calicut on 11 September 2023."
+  );
+
+    h2.appendChild(t2);
+    main.removeChild(main.lastElementChild);
+    main.appendChild(h2);
+
+    var elem = document.createElement("img");
+    elem.setAttribute("src", "./static/img/download-icon.png");
+    elem.setAttribute("id", "download-button");
+    elem.setAttribute("height", "30");
+    elem.setAttribute("width", "30");
+
+    var anchor = document.createElement("a");
+    anchor.href = uri;
+
+    anchor.download = "certificate.pdf";
+    anchor.appendChild(elem);
+    main.appendChild(anchor);
+
+    var enter = document.createElement("br");
+    main.appendChild(enter);
+    main.appendChild(enter);
+  }
+};
+
+
 const checkUser = async (ID) => {
   let main = document.querySelector(".main");
   main.innerHTML = "";
@@ -780,4 +898,43 @@ window.onload = (e) => {
       }
     });
   }
+
+  if (name === "kathygioriworkshop2023") {
+    const user = checkUser(id).then((user) => {
+      if (user) {
+        let main = document.querySelector(".main");
+        var h1 = document.createElement("H2");
+        var t1 = document.createTextNode("Loading your Certificate");
+        h1.appendChild(t1);
+        main.appendChild(h1);
+
+        for (i = 0; i < user.length; i++) {
+          for (j = 0; j < user[i].certificates.length; j++) {
+            if (
+              user[i].certificates[j].name.replace(/ /g, "").toLowerCase() ===
+              name
+            ) {
+              console.log("yes1")
+              if (user[i].certificates[j].hasCertificate) {
+                console.log("yes2")
+                generatekathy2023(
+                  user[i].name,
+                  user[i].certificates[j].name, 
+                  user[i].certificates[j].college
+                );
+              } else {
+                main.removeChild(main.lastElementChild);
+                addText("No Certificate for " + user[i].certificates[j].name);
+              }
+            }
+          }
+          if (j === 0) {
+            main.removeChild(main.lastElementChild);
+            addText("No Certificates Available");
+          }
+        }
+      }
+    });
+  }
+  
 };
