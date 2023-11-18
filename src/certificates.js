@@ -574,7 +574,7 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
       }
     );
 
-    exBytes1 = await fetch("./certificates/cert-pdf/ieeeexecom2022/a.pdf").then(
+    exBytes1 = await fetch("./certificates/cert-pdf/ieeeexecom2022/b.pdf").then(
       (res) => {
         return res.arrayBuffer();
       }
@@ -621,6 +621,7 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
     }
 
     if (no != null) {
+      no=no.toString()
       no = no.trim();
       no = titleCase(no);
       firstPg1.drawText(no, {
