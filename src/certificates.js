@@ -621,7 +621,7 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
     }
 
     if (no != null) {
-      no = no.trim();
+      //no = no.trim();
       no = titleCase(no);
       firstPg1.drawText(no, {
         size: certificate1.no.fontSize,
