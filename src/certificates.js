@@ -574,7 +574,7 @@ const generateieeeExecom2022 = async (name, certificate, post,no) => {
       }
     );
 
-    exBytes1 = await fetch("./certificates/cert-pdf/ieeeexecom2022/IEEE CERT digital.pdf").then(
+    exBytes1 = await fetch("./certificates/cert-pdf/ieeeexecom2022/b.pdf").then(
       (res) => {
         return res.arrayBuffer();
       }
