@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"name": "Melvin Manoj", "email": "melvin_b200923ec@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}]}]
-=======
-[{"name": "Melvin Manoj", "email": "melvin_b200923ec@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}, {"name": "IEEE EXECOM 2022", "post": "Treasurer SB SIGHT Group", "no": 98273137, "hasCertificate": "true"}]}]
->>>>>>> parent of 544c345 (first commit)
+[{"name": "Melvin Manoj", "email": "melvin_b200923ec@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}, {"name": "IEEE EXECOM 2022", "post": "Treasurer SB SIGHT Group", "no": 98273137, "hasCertificate": "true"}{"name": "IEEE EXECOM 2022", "post": "Circuits and Systems Society Chairperson", "no": 98273137, "hasCertificate": "true"}]}]
