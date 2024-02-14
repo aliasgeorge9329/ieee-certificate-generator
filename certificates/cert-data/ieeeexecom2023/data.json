@@ -1,14 +1,14 @@
 {
     "name": {
         "fontName": "monbaiti.TTF",
-        "fontSize": 65,
+        "fontSize": 120,
         "fontColor": {
           "r": 0,
           "g": 0,
           "b": 0
         },
-        "x": 245,
-        "y": 1169
+        "x": 350,
+        "y": 900
       },
     "post": {
         "fontName": "monbaiti.ttf",
