@@ -897,7 +897,7 @@ const generateieeeExecom2023 = async (name, certificate, post,no) => {
         }
     
         var qr = new QRious({
-          value: window.location.href,
+          value: "https://certificates.ieeenitc.org/certificates.html?id="+name+"&name=ieeeexecom2023",
           foreground: certificate1.qrCode.foreground,
           background: certificate1.qrCode.background,
         });
