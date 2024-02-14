@@ -908,8 +908,8 @@ const generateieeeExecom2023 = async (name, certificate, post,no) => {
         firstPg1.drawImage(qrImage, {
           x: certificate1.qrCode.x,
           y: certificate1.qrCode.y,
-          width: 100,
-          height: 100,
+          width: 200,
+          height: 200,
         });
     
         const uri = await pdfDoc1.saveAsBase64({ dataUri: true });
