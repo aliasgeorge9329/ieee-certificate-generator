@@ -12,14 +12,14 @@
       },
     "post": {
         "fontName": "monbaiti.ttf",
-        "fontSize": 20,
+        "fontSize": 50,
         "fontColor": {
           "r": 0,
           "g": 0,
           "b": 0
         },
         "x": 350,
-        "y": 900
+        "y": 750
       },
     "no": {
         "fontName": "monbaiti.ttf",
@@ -29,11 +29,11 @@
           "g": 0,
           "b": 0
         },
-        "x": 490,
-        "y": 262
+        "x": 700,
+        "y": 300
       }, 
     "qrCode": {
-      "x": 245,
+      "x": 350,
       "y": 268,
       "foreground": "#000000",
       "background": "#f7f8f8"
