@@ -1,0 +1,41 @@
+{
+    "name": {
+        "fontName": "monbaiti.TTF",
+        "fontSize": 120,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 350,
+        "y": 1050
+      },
+    "post": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 60,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 350,
+        "y": 800
+      },
+    "no": {
+        "fontName": "monbaiti.ttf",
+        "fontSize": 60,
+        "fontColor": {
+          "r": 0,
+          "g": 0,
+          "b": 0
+        },
+        "x": 1000,
+        "y": 935
+      }, 
+    "qrCode": {
+      "x": 350,
+      "y": 268,
+      "foreground": "#000000",
+      "background": "#f7f8f8"
+    }
+  }
