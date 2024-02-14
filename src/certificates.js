@@ -805,7 +805,7 @@ const generatekathy2023 = async (name, certificate, college) => {
 };
 
 
-const generateieeeExecom2023 = async (name, certificate, post,no) => {
+const generateieeeExecom2023 = async (name, certificate, mail,post,no) => {
       let main = document.querySelector(".main");
       const { PDFDocument, rgb } = PDFLib;
     
@@ -897,7 +897,7 @@ const generateieeeExecom2023 = async (name, certificate, post,no) => {
         }
     
         var qr = new QRious({
-          value: window.location.href,
+          value: "https://certificates.ieeenitc.org/certificates.html?id="+mail+"&name=ieeeexecom2023",
           foreground: certificate1.qrCode.foreground,
           background: certificate1.qrCode.background,
         });
@@ -1097,6 +1097,7 @@ if (name === "ieeeexecom2023") {
                 generateieeeExecom2023(
                   user[i].name,
                   user[i].certificates[j].name,
+                  user[i].email,
                   user[i].certificates[j].post,
                   user[i].certificates[j].no,
                 );

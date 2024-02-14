@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"name": "Vishnumaya S", "email": "vishnumaya_b200178ee@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}]}]
-=======
-[{"name": "Vishnumaya S", "email": "vishnumaya_b200178ee@nitc.ac.in", "college": "NITC", "certificates": [{"name": "Fluter and Dart Workshop", "category": "v", "hasCertificate": "true"}, {"name": "IEEE EXECOM 2022", "post": "Design Head", "no": 98273078, "hasCertificate": "true"}]}]
->>>>>>> parent of 544c345 (first commit)
+[{"name": "Vishnumaya S", "email": "vishnumaya_b200178ee@nitc.ac.in", "college": "NITC", "certificates": [{"name": "IEEE EXECOM 2023", "post": "Design Consulatant 2023-2024", "no": 98273078.0, "hasCertificate": "true"}]}]
